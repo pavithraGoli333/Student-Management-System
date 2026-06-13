@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>🎓 ERP PANEL</h2>
+
+    <a onclick="showPage('dashboard')">📊 Dashboard</a>
+    <a onclick="showPage('departments')">🏢 Departments</a>
+    <a onclick="showPage('settings')">⚙ Settings</a>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" class="page">
+
+      <h1>Student Dashboard</h1>
+
+      <!-- CARDS -->
+      <div class="cards">
+
+        <div class="card">
+          <h3>Total Students</h3>
+          <p id="totalStudents">0</p>
+        </div>
+
+        <div class="card">
+          <h3>CSE</h3>
+          <p id="cseCount">0</p>
+        </div>
+
+        <div class="card">
+          <h3>IT</h3>
+          <p id="itCount">0</p>
+        </div>
+
+        <div class="card">
+          <h3>ECE</h3>
+          <p id="eceCount">0</p>
+        </div>
+
+      </div>
+
+      <!-- SEARCH + ADD FORM -->
+      <div class="form-box">
+
+        <input id="search" onkeyup="renderTable()" placeholder="Search students...">
+
+        <div class="form">
+          <input type="text" id="name" placeholder="Name">
+          <input type="email" id="email" placeholder="Email">
+          <input type="text" id="phone" placeholder="Phone">
+          <input type="text" id="department" placeholder="Department">
+          <button onclick="addStudent()">Add Student</button>
+        </div>
+
+      </div>
+
+      <!-- TABLE -->
+      <div class="table-box">
+        <table>
+          <thead>
+            <tr>
+              <th onclick="sortData('id')">ID</th>
+              <th onclick="sortData('name')">Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Department</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- DEPARTMENTS -->
+    <div id="departments" class="page hidden">
+      <h1>Departments Overview</h1>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>CSE</h3>
+          <p id="depCSE">0</p>
+        </div>
+
+        <div class="card">
+          <h3>IT</h3>
+          <p id="depIT">0</p>
+        </div>
+
+        <div class="card">
+          <h3>ECE</h3>
+          <p id="depECE">0</p>
+        </div>
+
+        <div class="card">
+          <h3>EEE</h3>
+          <p id="depEEE">0</p>
+        </div>
+
+        <div class="card">
+          <h3>MECH</h3>
+          <p id="depMECH">0</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div id="settings" class="page hidden">
+      <h1>Settings</h1>
+
+      <div class="settings-box">
+        <h3>Admin Panel</h3>
+        <p>Manage system settings</p>
+
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
